@@ -1,0 +1,13 @@
+employee_id,role_category,nationality,contract_status
+E001,skilled,UAE,active
+E002,skilled,Indian,active
+E003,skilled,Indian,active
+E004,semi_skilled,Pakistani,active
+E005,semi_skilled,Pakistani,active
+E006,semi_skilled,Pakistani,active
+E007,semi_skilled,Bangladeshi,active
+E008,semi_skilled,Bangladeshi,active
+E009,unskilled,UAE,active
+E010,unskilled,Indian,active
+E011,unskilled,Indian,active
+E012,unskilled,Indian,active

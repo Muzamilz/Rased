@@ -1,0 +1,10 @@
+{
+  "name": "@rased/backend",
+  "version": "0.1.0",
+  "private": true,
+  "workspaces": [
+    "rules-engine",
+    "llm-service",
+    "api"
+  ]
+}

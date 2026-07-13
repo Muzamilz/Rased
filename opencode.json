@@ -1,0 +1,13 @@
+{
+  "$schema": "https://opencode.ai/config.json",
+  "permission": {
+    "bash": {
+      "git push --force*": "ask",
+      "git push -f*": "ask",
+      "git rebase*": "ask",
+      "git *": "allow",
+      "*": "ask"
+    }
+  },
+  "instructions": ["docs/01-PRD-Rased.md", "docs/02-TRD-Architecture.md"]
+}

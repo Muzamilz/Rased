@@ -30,9 +30,21 @@ export interface GapToNextBand {
   target_band: Band;
 }
 
+export interface CategoryAnalysis {
+  role_category: RoleCategory;
+  total_employees: number;
+  national_employees: number;
+  percentage: number;
+  band: Band;
+  gap_to_next_band: GapToNextBand | null;
+  fine_exposure_aed: number;
+}
+
 export interface ComplianceResult {
   company_summary: CompanySummary;
+  categories: CategoryAnalysis[];
   current_band: Band;
   gap_to_next_band: GapToNextBand | null;
   fine_exposure_aed: number;
+  recommendations: string[];
 }

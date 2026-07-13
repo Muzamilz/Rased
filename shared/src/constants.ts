@@ -25,6 +25,10 @@ export const DEFAULT_QUOTA_RULES: QuotaRule[] = [
   { role_category: 'unskilled',     band: 'high_green',   min_percentage: 3,  fine_per_position_aed: 72_000 },
   { role_category: 'unskilled',     band: 'medium_green', min_percentage: 2,  fine_per_position_aed: 72_000 },
   { role_category: 'unskilled',     band: 'low_green',    min_percentage: 0,  fine_per_position_aed: 72_000 },
+  // Red band — fallback when no higher band is met
+  { role_category: 'skilled',       band: 'red',          min_percentage: 0,  fine_per_position_aed: 120_000 },
+  { role_category: 'semi_skilled',  band: 'red',          min_percentage: 0,  fine_per_position_aed: 96_000 },
+  { role_category: 'unskilled',     band: 'red',          min_percentage: 0,  fine_per_position_aed: 72_000 },
 ];
 
 export const ROLE_CATEGORIES: RoleCategory[] = ['skilled', 'semi_skilled', 'unskilled'];

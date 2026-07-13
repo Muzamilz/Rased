@@ -6,4 +6,5 @@ export interface AnalyzeResponse extends ComplianceResult {
   narrative_en: string;
   narrative_ar: string;
   validation_errors?: { row: number; field: string; message: string }[];
+  report_id?: string | null;
 }

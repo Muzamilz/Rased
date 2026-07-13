@@ -63,7 +63,15 @@ export default function Home() {
           </h1>
           <p className="mt-1 text-sm text-gray-500">{tr('subtitle', locale)}</p>
         </div>
-        <LanguageToggle locale={locale} onToggle={setLocale} />
+        <div className="flex items-center gap-3">
+          <a
+            href="/login"
+            className="rounded-lg bg-indigo-600 px-3 py-1.5 text-xs font-medium text-white transition-colors hover:bg-indigo-700"
+          >
+            Sign In
+          </a>
+          <LanguageToggle locale={locale} onToggle={setLocale} />
+        </div>
       </header>
 
       {!result && (

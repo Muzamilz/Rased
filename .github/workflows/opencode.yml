@@ -1,0 +1,48 @@
+name: OpenCode CI Loop
+
+on:
+  pull_request:
+    types: [opened, synchronize]
+  schedule:
+    # Weekly housekeeping scan -- Monday 06:00 UTC
+    - cron: "0 6 * * 1"
+  issue_comment:
+    types: [created]
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  opencode-review:
+    if: github.event_name == 'pull_request'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Run OpenCode PR review
+        uses: anomalyco/opencode-action@v1  # verify current action name/version before use
+        with:
+          prompt: >
+            Review this PR against AGENTS.md rules. Specifically check:
+            (1) the compliance/quota calculation logic is not being computed by an LLM call,
+            (2) tests exist for any new rules-engine logic,
+            (3) the branch followed the feature/* -> development workflow.
+            Leave review comments; do not push changes directly.
+
+  opencode-housekeeping:
+    if: github.event_name == 'schedule'
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+      - name: Weekly TODO / tech-debt scan
+        uses: anomalyco/opencode-action@v1  # verify current action name/version before use
+        with:
+          prompt: >
+            Scan the codebase for TODO comments and obvious tech debt. Open a single
+            summary issue listing findings, grouped by severity. Do not open individual
+            issues per item, and do not modify any code.
+
+# NOTE: Confirm the exact action name/version and required secrets (e.g. an API key)
+# against OpenCode's current GitHub integration docs before relying on this in production --
+# GitHub Actions integrations change and this file should be treated as a starting
+# template, not a guaranteed-working config.
